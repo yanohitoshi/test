@@ -1,0 +1,18 @@
+<追加のインクルードディレクトリ>
+..\..\external\SDL\include\SDL;..\..\external\GLEW\include\GL;..\..\external\SOIL\include\SOIL;%(AdditionalIncludeDirectories)
+
+<追加のライブラリディレクトリ>
+..\..\external\SDL\lib\win\x86;..\..\external\GLEW\lib\win\x86;..\..\external\SOIL\lib\win\x86;%(AdditionalLibraryDirectories)
+
+<OpenGL用の追加の依存ファイル>
+opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_mixer.lib;SDL2_image.lib;glew32.lib;SOIL.lib;%(AdditionalDependencies)
+
+<初期状態の追加の依存ファイル>
+kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)
+
+<構成->release,リンカー->システム->サブシステム>
+コンソール (/SUBSYSTEM:CONSOLE)
+
+<ビルドイベント->ビルド後のイベント->コマンドライン>
+xcopy "$(ProjectDir)\..\..\external\SDL\lib\win\x86\*.dll" "$(OutDir)" /i /s /y
+xcopy "$(ProjectDir)\..\..\external\GLEW\lib\win\x86\*.dll" "$(OutDir)" /i /s /y
